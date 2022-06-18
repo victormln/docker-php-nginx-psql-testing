@@ -1,4 +1,4 @@
 .idea
 composer.lock
 vendor/
-.docker/data
+.docker/data/
