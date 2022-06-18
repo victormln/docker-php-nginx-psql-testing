@@ -7,6 +7,7 @@ help: # Show Help
 
 install: ## First entry command to install all the necessary
 	make startd
+	make composer-install
 	echo "Adding web-server.test to /etc/hosts"
 	sudo -- sh -c 'echo "127.0.0.1 web-server.test" >> /etc/hosts'
 
@@ -18,3 +19,15 @@ startd: ## Startd
 
 stop: ## Stop
 	@docker-compose stop
+
+composer-install: ## Install composer dependencies
+	@docker exec php sh -c "XDEBUG_MODE=off composer install"
+
+test: ## Execute PHPUnite test
+	@docker exec php sh -c "XDEBUG_MODE=off php ./vendor/bin/phpunit -c phpunit.xml.dist"
+
+coverage-text: ## Execute phpunit coverage in text format
+	@docker exec php sh -c "XDEBUG_MODE=coverage php -n -dzend_extension=xdebug ./vendor/phpunit/phpunit/phpunit --coverage-text"
+
+infection: ## Execute Infection
+	@docker exec php sh -c "XDEBUG_MODE=coverage infection --threads=1"
