@@ -1,8 +1,8 @@
-![PHP Version](https://img.shields.io/packagist/php-v/victormln/docker-php-nginx)
+![PHP Version](https://img.shields.io/packagist/php-v/victormln/docker-php-nginx-psql-testing)
 
 # Introduction
 
-Template repository to have PHP + nginx available through a local URL: http://web-server.test
+Template repository to have PHP + nginx + PostgresSQL + testing available through a local URL: http://web-server.test
 
 ## What is in this template
 
@@ -11,6 +11,9 @@ Template repository to have PHP + nginx available through a local URL: http://we
 - Composer
 - Makefile
 - Xdebug
+- PostgresSQL
+- PHPUnit
+- Infection
 - Nginx
 
 ## Installation
@@ -18,13 +21,13 @@ Template repository to have PHP + nginx available through a local URL: http://we
 1. From composer
 
 ```shell
-$ composer create-project victormln/docker-php-nginx your-project
+$ composer create-project victormln/docker-php-nginx-psql-testing your-project
 ```
 
 OR with git:
 
 ```shell
-$ git clone https://github.com/victormln/docker-php-nginx.git your-project
+$ git clone https://github.com/victormln/docker-php-nginx-psql-testing.git your-project
 ```
 
 2. Install repository
